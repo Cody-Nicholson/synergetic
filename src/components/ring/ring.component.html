@@ -1,0 +1,18 @@
+<div class="ring">
+  <div class="ring-labels">
+    <div class="title">
+      {{title}}
+    </div>
+    <div class="ring-value">
+      <counter [countTo]="data[1]*100"
+               [duration]="700"
+               (count)="display = $event">
+        {{(display || 0).toFixed(0)}}%
+      </counter>
+    </div>
+    <div class="ring-icon"
+         [ngClass]="icon">
+    </div>
+  </div>
+  <div #container></div>
+</div>

@@ -1,0 +1,61 @@
+
+/* todo organize */
+.main{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.syn-sidenav-layout{
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.syn-sidenav-container{
+  position: relative;
+  transform: translate3d(0,0,0);
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.sidenav-content{
+  margin-left: 240px;
+  margin-right: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  transform: translate3d(0,0,0);
+  display: block;
+  height: 100%;
+  overflow: auto;
+}
+
+.syn-sidebar{
+  position: relative;
+  transform: translate3d(0,0,0);
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  outline: 0;
+  box-sizing: border-box;
+  height: 100%;
+  padding-bottom: 72px;
+  width: 240px;
+  overflow: auto;
+}

@@ -1,0 +1,16 @@
+
+<span class="lift-arrow"
+      [ngClass]="{
+        'lift-success': lift >= threshold,
+        'lift-danger': lift <= -threshold,
+        'lift-primary': lift < threshold && lift > -threshold,
+        'lift-sm': size == 'sm',
+        'lift-lg': size == 'lg'
+      }"><!--
+ --><span class="glyphicon glyphicon-arrow-up"
+    *ngIf="lift >= 0"><!--
+    --></span><!--
+ --><span class="glyphicon glyphicon-arrow-down"
+      *ngIf="lift < 0"></span>{{(lift > 0? lift: -lift) | percent: '1.0-0'}}<!--
+ -->
+</span>

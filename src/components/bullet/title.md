@@ -1,0 +1,1 @@
+An animated number counter Directive that allows any type of formatting / markup.  Only a (count) is emitted, the author decides how to use it.  

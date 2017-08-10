@@ -1,0 +1,1 @@
+Simple pie chart displaying a percentage value.

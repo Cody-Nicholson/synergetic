@@ -1,0 +1,43 @@
+/* Nav Sidebar
+    - modeled after the bootstrap .navbar and .navbar-nav relationship
+    - Also allows styling in the "  "-default "  "-etc skin convention
+ */
+
+
+.syn-sidebar {
+  flex: 0 0 @sidebar-width;
+
+  .syn-sidebar-heading{
+    font-weight: 600;
+    padding: @sidebar-link-padding;
+    margin-bottom: 10px;
+  }
+
+  &::-webkit-scrollbar{
+    width: 9px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-track{
+    width: 11px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #CCC;
+  }
+
+  &::-webkit-scrollbar-thumb:hover{
+    background: #7B7B7B;
+  }
+}
+
+.syn-sidebar-default{
+  background-color: @sidebar-default-bg;
+}
+
+

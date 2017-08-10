@@ -1,0 +1,19 @@
+{
+  "name": "@synergetic/core",
+  "version": "0.1.0",
+  "author": "Cody Nicholson",
+  "description": "Angular Powered Components",
+  "main": "bundles/ng-synergetic.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "homepage": "",
+  "peerDependencies": {
+    "d3": "^4.7.4",
+    "@angular/core": "^4.2.6",
+    "@angular/common": "^4.2.6",
+    "@angular/http": "^4.2.6",
+    "@angular/router": "4.2.6",
+    "rxjs": "^5.3.0",
+    "zone.js": "^0.8.5"
+  }
+}

@@ -1,0 +1,42 @@
+<div dropdown>
+  
+  <a class="sidebar-menu-toggle"
+     *ngIf="type == 'change'"
+     dropdownToggle>
+    change
+  </a>
+  
+  <a class="dropdown-toggle"
+     *ngIf="type == 'dropdown'"
+     dropdownToggle>
+      {{selected}}
+    <span class="caret"></span>
+  </a>
+  
+  <ul class="dropdown-menu sidebar-dropdown-menu"
+      dropdownMenu>
+    
+    <ng-template ngFor
+              let-item
+              [ngForOf]="items">
+      <li class="menu-item-heading">
+        {{item.label}}
+      </li>
+      <li *ngFor="let subItem of item.items"
+          (click)="select(item, subItem)">
+        
+        <a *ngIf="subItem.routerLink"
+           routerLinkActive="active"
+           [routerLink]="subItem.routerLink">
+          {{subItem.label}}
+        </a>
+        
+        <a *ngIf="!subItem.routerLink">
+          {{subItem.label}}
+        </a>
+      </li>
+    
+    </ng-template>
+  
+  </ul>
+</div>

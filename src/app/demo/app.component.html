@@ -1,0 +1,135 @@
+<h1>Developer Demo App</h1>
+
+<div class="container-fluid">
+
+  <div class="pbar-group" parallelBars>
+    <legend>
+      <h2>Parallel Bars</h2>
+    </legend>
+
+    <div class="pbar-row" parallelBar value="23">
+    </div>
+
+    <div class="pbar-row" parallelBar value="34">
+    </div>
+
+    <div class="pbar-row" parallelBar value="54">
+    </div>
+
+  </div>
+
+  <div>
+    <legend>
+      <h2>Bullets</h2>
+    </legend>
+    <div class="row">
+      <div class="col-xs-3">
+        <bullet value="35" benchmark="38" max="100">
+        </bullet>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-3">
+        <bullet value="78" benchmark="55" max="100">
+        </bullet>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-3">
+        <bullet value="45" benchmark="77" max="100">
+        </bullet>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <legend>
+      <h2>Rings</h2>
+    </legend>
+    <div class="col-xs-3">
+      <ring title="Mobile" icon="glyphicon glyphicon-phone" value=".24">
+      </ring>
+    </div>
+    <div class="col-xs-3">
+      <ring title="Desktop" value=".35">
+      </ring>
+    </div>
+    <div class="col-xs-3">
+      <ring title="Tablet" value=".41">
+      </ring>
+    </div>
+  </div>
+
+  <div>
+    <legend>
+      <h2>Lift</h2>
+    </legend>
+
+    <h4>Small ('sm')</h4>
+    <div>
+      Stocks
+      <lift value="2" benchmark="3" size="sm">
+      </lift>
+    </div>
+    <div>
+      Bonds
+      <lift value="4" benchmark="3" size="sm">
+      </lift>
+    </div>
+    <h4>Large ('lg')</h4>
+    <div>
+      Content Revenue KPI
+      <lift value="10" benchmark="8" size="lg">
+      </lift>
+    </div>
+
+  </div>
+
+  <div>
+
+    <legend>
+      <h2>Table</h2>
+    </legend>
+
+    <div class="box table-box">
+
+      <syn-table class="box-table" [rows]="dataRows">
+
+        <syn-thead>
+          <li synTh class="col-xs-1" label="ID" key="id">
+          </li>
+
+          <li synTh class="col-xs-7" [defaultSort]="true" label="Name" key="name">
+          </li>
+
+          <li synTh class="col-xs-4" label="Clicks" key="clicks">
+          </li>
+        </syn-thead>
+
+        <syn-tbody>
+
+          <ng-template let-row="row">
+            <li class="td col-xs-1">
+              {{row.id}}
+            </li>
+
+            <li class="td col-xs-7">
+              {{row.name}}
+            </li>
+
+            <li class="td col-xs-4 ellipsis-cell">
+              {{row.clicks}}
+            </li>
+          </ng-template>
+
+        </syn-tbody>
+
+      </syn-table>
+
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,44 @@
+
+@selector-primary-link-color:                       #FFF;
+@selector-primary-dropdown-link-hover-bg:           #333F48;
+@font-size-xs:         ceil((@font-size-base * 0.7)); // ~12px
+
+.selectors{
+  padding: 15px;
+
+  .selector{
+    padding: 10px;
+    border-radius: 1px;
+    margin-bottom: 1px;
+
+    .selector-heading{
+      font-size: 12px;
+    }
+
+    &.sub-selector{
+      padding: 0;
+      text-align: left;
+    }
+
+  }
+
+  .selector-primary{
+    background-color: @selector-primary-bg;
+    font-weight: 200;
+
+    a{
+      color: @selector-primary-link-color;
+    }
+
+    a.selector-change{
+      text-decoration: underline;
+      font-size: @font-size-xs;
+    }
+
+    a.selector-heading{
+      color: @selector-primary-heading-link-color;
+    }
+
+  }
+}
+

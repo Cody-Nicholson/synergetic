@@ -1,0 +1,105 @@
+@bullet-flat-height: 20px;
+@bullet-marker-bg: #333333;
+@bullet-marker-base-bg: #CCC;
+
+@bullet-success:         #2AB27B;
+@bullet-default:         #71747b;
+@bullet-default-light:   #CCCCCC;
+@bullet-danger:          #D83252;
+
+@ob-bar-grey: #c0c6cf;
+
+.bullet{
+  .bullet-size(20px, 16px, 3px)
+}
+
+.bullet.bullet-lg{
+  .bullet-size(36px, 28px, 4px)
+}
+
+/* Bullet Graph CSS */
+.bullet-size(@bullet-height, @bullet-bar-height, @bullet-marker-width) {
+
+  @bullet-bar-offset: (@bullet-height - @bullet-bar-height)/2;
+
+  display: block;
+  height: @bullet-height;
+  position: relative;
+  margin: 0 @bullet-marker-width;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background: @bullet-marker-base-bg;
+    display: block;
+    left: -@bullet-marker-width;
+    width: @bullet-marker-width;
+    height: @bullet-height;
+  }
+
+  .bar {
+    float: left;
+    border: 0;
+    min-width: 0;
+    width: 0;
+    height: @bullet-bar-height;
+    margin-top: @bullet-bar-offset;
+    transition: width 0.6s ease;
+
+
+  }
+
+  .benchmark {
+    background: @bullet-marker-bg;
+    left: 0;
+    position: absolute;
+    transition: left ease-in-out 0.5s;
+    width: @bullet-marker-width;
+    height: @bullet-height;
+  }
+}
+
+/* Special case that has a border and no markers */
+.bullet.bullet-flat{
+  height: @bullet-flat-height;
+  border: 1px solid @bullet-default-light;
+  margin: 0;
+
+  &:before {
+    display: none;
+  }
+
+  .bullet-bar{
+    position: absolute;
+    margin-top: 0;
+    top: -1px;
+    height: @bullet-flat-height;
+
+    /* Covers left border */
+    &:before{
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 1px;
+      display: block;
+      background-color: inherit;
+      left: -1px;
+    }
+  }
+}
+
+.bullet .bar{
+  &.good{
+    background-color: @bullet-success;
+  }
+
+  &.normal{
+    background-color: @ob-bar-grey;
+  }
+
+  &.bad{
+    background-color: @bullet-danger;
+  }
+}
+
+

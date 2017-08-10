@@ -1,0 +1,41 @@
+@syn-item-color: #565154;
+@syn-item-bg: #5bc0de;
+
+.syn-value-list{
+
+  margin-bottom: 10px;
+
+  .syn-value-row + .syn-value-row{
+    margin-top: 5px;
+  }
+
+  .syn-value{
+    display: inline-block;
+    color: @syn-item-color;
+    font-weight: 600;
+    height: 32px;
+    background: @syn-item-bg;
+    width: 360px;
+    padding: 6px 10px 6px 10px;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.42857;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    + .btn{
+      vertical-align: middle;
+    }
+
+    &.empty-value{
+      color: #AAA;
+      background-color: #E2DFDE;
+      border: 1px solid #E2DFDE;
+      width: auto;
+    }
+  }
+}

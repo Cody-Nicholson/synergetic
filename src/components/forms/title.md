@@ -1,0 +1,1 @@
+Easily conform to Synergetic styling / UX and reduce boilerplate.  Automatically displays common invalid form field messages.

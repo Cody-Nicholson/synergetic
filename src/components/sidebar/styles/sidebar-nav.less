@@ -1,0 +1,126 @@
+
+
+.sidebar-nav{
+  overflow-y: auto;
+
+  > li{
+
+    > a{
+      padding: @sidebar-link-padding;
+      &:hover,
+      &:focus{
+        text-decoration: none;
+      }
+
+      .sidebar-icon{
+        font-size: 24px;
+        vertical-align: middle;
+        line-height: 20px;
+      }
+
+      .sidebar-title{
+        margin-left: 10px;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a{
+
+      &:hover,
+      &:focus{
+        text-decoration: none;
+        background-color: transparent;
+        cursor: none;
+      }
+    }
+
+    /* Nested Sidebar items */
+    .nav-sidebar-nav{
+      margin-top: 1px;
+      padding: 15px 15px 15px 50px;
+
+      > li:first-child > a{
+        padding-top: 0;
+      }
+
+      > li > a{
+        padding: 10px 0 0 0;
+      }
+
+    }
+  }
+}
+
+.syn-sidebar-default{
+
+  .nav-sidebar-heading{
+    color: white;
+  }
+  .sidebar-nav{
+    > li > a{
+      color: @sidebar-default-link;
+
+      &:hover,
+      &:focus{
+        color: @sidebar-default-link-hover;
+        background-color: @sidebar-default-link-hover-bg;
+      }
+    }
+
+    > li.active > a{
+      &,
+      &:hover,
+      &:focus{
+        color: @sidebar-default-link-active;
+        background-color: @sidebar-default-link-active-bg;
+      }
+    }
+
+    > li.disabled > a{
+      &,
+      &:hover,
+      &:focus{
+        color: @sidebar-default-link-disabled;
+        background-color: @sidebar-default-link-disabled-bg;
+      }
+    }
+
+    > li.active .nav-sidebar-nav{
+      background-color: @sidebar-default-link-active-bg;
+    }
+
+    /* Nested Nav*/
+    .sidebar-nav{
+
+      list-style: disc;
+      color: @sidebar-default-link;
+
+      > li.active{
+        display: list-item;
+        font-weight: bold;
+        color: @sidebar-default-link-active-bullet-color;
+      }
+
+      > li > a{
+
+        &:hover,
+        &:focus{
+          color: @sidebar-default-link-hover;
+          font-weight: bold;
+          background-color: inherit;
+        }
+      }
+
+      > li.active > a{
+        &,
+        &:hover,
+        &:focus{
+          color: @sidebar-default-link-active;
+          background-color: inherit;
+        }
+      }
+
+    }
+
+  }
+}
