@@ -1,6 +1,6 @@
 # @synergetic/core
 
-Synergetic Components Developer
+Synergetic Component Library for Angular
 
 ## Getting Started
 
@@ -68,5 +68,9 @@ Other Peer Dependencies:
     ...
 }
 ```
+
+## API
+
+Checkout the API Demo Site [reference](https://cody-nicholson.github.io/synergetic-api/)
 
 

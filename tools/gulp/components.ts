@@ -1,6 +1,6 @@
-/* Components Build - Adapted from material2 () */
+/* Components Build - Adapted from Angular material2 () */
 
-import {task, watch, src, dest} from 'gulp';
+import { task, watch, src, dest } from 'gulp';
 import * as path from 'path';
 
 import {
@@ -19,7 +19,6 @@ const gulpMinifyHtml = require('gulp-htmlmin');
 const gulpIf = require('gulp-if');
 const nodeResolve = require('rollup-plugin-node-resolve');
 
-
 // NOTE: there are two build "modes" in this file, based on which tsconfig is used.
 // When `tsconfig.json` is used, we are outputting ES6 modules and a UMD bundle. This is used
 // for serving and for release.
@@ -30,14 +29,12 @@ const nodeResolve = require('rollup-plugin-node-resolve');
 /** Path to the tsconfig used for ESM output. */
 const tsconfigPath = path.relative(PROJECT_ROOT, path.join(COMPONENTS_DIR, 'tsconfig.json'));
 
-
 /** [Watch task] Rebuilds (ESM output) whenever ts, scss, or html sources change. */
 task(':watch:components', () => {
     watch(path.join(COMPONENTS_DIR, '**/*.ts'), ['build:components', triggerLivereload]);
     watch(path.join(COMPONENTS_DIR, '**/*.scss'), ['build:components', triggerLivereload]);
     watch(path.join(COMPONENTS_DIR, '**/*.html'), ['build:components', triggerLivereload]);
 });
-
 
 /** Builds component typescript only (ESM output). */
 task(':build:components:ts', tsBuildTask(COMPONENTS_DIR, 'tsconfig-srcs.json'));
@@ -48,12 +45,12 @@ task(':build:components:spec', tsBuildTask(COMPONENTS_DIR));
 /** Copies assets (html, markdown) to build output. */
 task(':build:components:assets', copyTask([
     path.join(COMPONENTS_DIR, '**/*.!(ts|config.ts|service.ts|spec.ts|interfaces.ts|directive.ts|component.ts|module.ts)'),
-    path.join(PROJECT_ROOT, 'README.md')
+    //path.join(PROJECT_ROOT, 'README.md')
 ], DIST_COMPONENTS_ROOT));
 
 /** Minifies the HTML and CSS assets in the distribution folder. */
 task(':build:components:assets:minify', () => {
-    return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT})
+    return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT })
         .pipe(gulpIf(/.css$/, gulpMinifyCss(), gulpMinifyHtml(HTML_MINIFIER_OPTIONS)))
         .pipe(dest(DIST_COMPONENTS_ROOT));
 });
@@ -65,14 +62,13 @@ task(':build:components:less', lessBuildTask(LESS_INDEX_DIR, DIST_COMPONENTS_ROO
 
 /** Builds the UMD bundle for all of Angular Material. */
 task(':build:components:rollup', () => {
-    const globals: {[name: string]: string} = {
+    const globals: { [name: string]: string } = {
         // Angular dependencies
         '@angular/core': 'ng.core',
         '@angular/common': 'ng.common',
         '@angular/forms': 'ng.forms',
         '@angular/http': 'ng.http',
         '@angular/router': 'ng.router',
-
         // Rxjs dependencies
         'rxjs/Observable': 'Rx',
         'rxjs/ReplaySubject': 'Rx',
@@ -80,7 +76,7 @@ task(':build:components:rollup', () => {
         'rxjs/add/operator/mergeMap': 'Rx.Observable.prototype',
         'rxjs/add/observable/fromEvent': 'Rx.Observable',
         'rxjs/add/observable/of': 'Rx.Observable',
-
+        // D3 dependencies
         'd3-timer': 'd3-timer',
         'd3-selection': 'd3-selection',
         'd3-shape': 'd3-shape',
@@ -94,11 +90,11 @@ task(':build:components:rollup', () => {
     const rollupOptions = {
         context: 'this',
         external: Object.keys(globals),
-       /* plugins: [nodeResolve({ //needed to load d3 in
-            jsnext: true,
-            main: true,
-            skip: ['@angular'],
-        })]*/
+        /* plugins: [nodeResolve({ //needed to load d3 in
+             jsnext: true,
+             main: true,
+             skip: ['@angular'],
+         })]*/
     };
 
     const rollupGenerateOptions = {
@@ -110,7 +106,7 @@ task(':build:components:rollup', () => {
         banner: LICENSE_BANNER,
         dest: 'ng-synergetic.umd.js'
     };
-    console.log(path.join(DIST_COMPONENTS_ROOT, 'index.js'))
+
     return src(path.join(DIST_COMPONENTS_ROOT, 'index.js'))
         .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
         .pipe(dest(path.join(DIST_COMPONENTS_ROOT, 'bundles')));
