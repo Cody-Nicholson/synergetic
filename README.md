@@ -69,4 +69,13 @@ Other Peer Dependencies:
 }
 ```
 
+## Building / Bundling Component Library
+
+Componets are located in [src/components](https://github.com/Cody-Nicholson/synergetic/tree/master/src/components)
+
+Running the following command will build out the components into a publishable package in the /dist folder.
+
+```shell
+npm run build-lib
+```
 
